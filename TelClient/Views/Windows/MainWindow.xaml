@@ -12,8 +12,31 @@
     <Window.DataContext>
         <vm:MainWindowViewModel></vm:MainWindowViewModel>
     </Window.DataContext>
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="83,33,0,0" Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="123"/>
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button>Файл</Button>
+            <Button>Подключиться</Button>
+            <Button>Помощь</Button>
+        </ToolBar>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>
+                <TextBlock Text="4561"/>
+                
+            </StatusBarItem>
+            <StatusBarItem>
+                
+            </StatusBarItem> 
+        </StatusBar>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="23*"/>
+                <ColumnDefinition Width="47*"/>
+                <ColumnDefinition Width="730*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
 
-    </Grid>
+    </DockPanel>
 </Window>
