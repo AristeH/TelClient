@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelClient", "TelClient\TelClient.csproj", "{012E8E81-016E-4FF0-A438-6BEFF908F6DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelClient", "TelClient\TelClient.csproj", "{012E8E81-016E-4FF0-A438-6BEFF908F6DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{20BEF78D-A422-421E-B4FE-6AF884577BE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelConsole", "TelConsole\TelConsole.csproj", "{7C767AA1-8F16-4F6A-A954-07BA4E38D285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelWPFTest", "TelWPFTest\TelWPFTest.csproj", "{870E4951-C262-42C1-9ED2-2915DCA1540B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,21 @@ Global
 		{012E8E81-016E-4FF0-A438-6BEFF908F6DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{012E8E81-016E-4FF0-A438-6BEFF908F6DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{012E8E81-016E-4FF0-A438-6BEFF908F6DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C767AA1-8F16-4F6A-A954-07BA4E38D285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C767AA1-8F16-4F6A-A954-07BA4E38D285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C767AA1-8F16-4F6A-A954-07BA4E38D285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C767AA1-8F16-4F6A-A954-07BA4E38D285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{870E4951-C262-42C1-9ED2-2915DCA1540B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{870E4951-C262-42C1-9ED2-2915DCA1540B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{870E4951-C262-42C1-9ED2-2915DCA1540B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{870E4951-C262-42C1-9ED2-2915DCA1540B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7C767AA1-8F16-4F6A-A954-07BA4E38D285} = {20BEF78D-A422-421E-B4FE-6AF884577BE4}
+		{870E4951-C262-42C1-9ED2-2915DCA1540B} = {20BEF78D-A422-421E-B4FE-6AF884577BE4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B4BE853-D414-48B1-AB78-07D709489256}
