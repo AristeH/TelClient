@@ -17,6 +17,7 @@
             <Button>Файл</Button>
             <Button>Подключиться</Button>
             <Button>Помощь</Button>
+            <Button Command="{Binding CloseApplicationCommand}">Выход</Button>
         </ToolBar>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
