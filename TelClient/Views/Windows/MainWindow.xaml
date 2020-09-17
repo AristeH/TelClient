@@ -3,8 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        xmlns:cmd="clr-namespace:TelClient.Infrastructure.Commands"
         xmlns:vm="clr-namespace:TelClient.ViewModels"
-        xmlns:local="clr-namespace:TelClient"
+        xmlns:l="clr-namespace:TelClient"
         mc:Ignorable="d"
         
         Title="{Binding Title}" 
@@ -14,7 +16,8 @@
     </Window.DataContext>
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">
-            <Button>Файл</Button>
+            <Button fa5:Awesome.Content="Brands__500Px" 
+        TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome">afqk</Button>
             <Button>Подключиться</Button>
             <Button>Помощь</Button>
             <Button Command="{Binding CloseApplicationCommand}">Выход</Button>
@@ -22,15 +25,16 @@
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
                 <TextBlock Text="4561"/>
-                
+
             </StatusBarItem>
             <StatusBarItem>
-                
-            </StatusBarItem> 
+
+            </StatusBarItem>
         </StatusBar>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="23*"/>
+                <ColumnDefinition Width="14*"/>
+                <ColumnDefinition Width="9*"/>
                 <ColumnDefinition Width="47*"/>
                 <ColumnDefinition Width="730*"/>
             </Grid.ColumnDefinitions>
