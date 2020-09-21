@@ -45,10 +45,14 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
         </Grid>
-        <GroupBox Header="Группа=">
-            <ListBox ItemsSource="{Binding Groups}" DisplayMemberPath="Name"></ListBox>
+        <GroupBox Grid.Column="0" Header="Группа=">
+            <ListBox ItemsSource="{Binding Groups}" 
+                     DisplayMemberPath="Name"
+                     SelectedItem="{Binding SelectedGroup}">
+                
+            </ListBox>
         </GroupBox>
-        <GroupBox Header="Студенты=">
+        <GroupBox Grid.Column="1" Header="{Binding SelectedGroup.Name, StringFormat='Студенты {0}',FallbackValue='sty', TargetNullValue='No sel' }">
             <DataGrid ItemsSource="{Binding St}" DisplayMemberPath="Name">
                 
             </DataGrid>

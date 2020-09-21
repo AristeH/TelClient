@@ -20,6 +20,12 @@ namespace TelClient.ViewModels
     class MainWindowViewModel:ViewModel
     {
        public ObservableCollection<Group> Groups { get; set; }
+
+        private Group _SelectedGroup;
+        public Group SelectedGroup {
+            get => _SelectedGroup;
+            set => Set(ref _SelectedGroup, value);
+        }
         #region заголовок окна
         /// <summary>Заголовок окна</summary>
         public WebsocketClient ws;
