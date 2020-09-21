@@ -18,8 +18,8 @@
         <ToolBar DockPanel.Dock="Top">
             <Button fa5:Awesome.Content="Brands__500Px" 
         TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome">afqk</Button>
-            <Button>Подключиться</Button>
-            <Button>Помощь</Button>
+            <Button Command="{Binding wsConnect}">Подключиться</Button>
+            <Button Command="{Binding wsSend}">Помощь</Button>
             <Button Command="{Binding CloseApplicationCommand}">Выход</Button>
         </ToolBar>
         <StatusBar DockPanel.Dock="Bottom">
@@ -40,8 +40,19 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
         </Grid>
-
+        <GroupBox Header="Группа=">
+            <ListBox ItemsSource="{Binding Groups}" DisplayMemberPath="Name"></ListBox>
+        </GroupBox>
+        <GroupBox Header="Студенты=">
+            <DataGrid ItemsSource="{Binding St}" DisplayMemberPath="Name">
+                
+            </DataGrid>
+        </GroupBox>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Groups[1].Students}" FontWeight="Bold" />
     </DockPanel>
 </Window>
