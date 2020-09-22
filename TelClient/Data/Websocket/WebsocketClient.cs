@@ -4,19 +4,25 @@ using System.Linq;
 using System.Text;
 using WebSocket4Net;
 using TelClient;
+using Newtonsoft.Json;
 
 namespace TelClient.Data
 {
+    public struct mess
+        {
+            public string Sender; 
+            public string Recipient;
+            public string Content;
+            public string Action;
+            public string[] parameters;
+        }
     class WebsocketClient
     {
         public WebSocket websocket;
         private bool is_connected = false;
-        struct mess
-        {
-            public string action;
-            public string[] parameters;
-        }
+       
 
+        public mess sendmes = new mess(); 
         public void initWebSocketClient(String serverURL)
         {
             if (serverURL == "")
@@ -65,15 +71,13 @@ namespace TelClient.Data
 
         }
 
-        public void sendMessage()
+        public void sendMessage(mess Message)
         {
             if (is_connected)
             {
-                mess tom = new mess();
-                tom.action = "get";
-                string[] arr = { "form:list", "object:login" };
-                tom.parameters = arr;
-                 websocket.Send("login");
+              
+                string json = JsonConvert.SerializeObject(Message);
+                websocket.Send(json);
            }
         }
     }

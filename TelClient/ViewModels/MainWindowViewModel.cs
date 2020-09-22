@@ -15,8 +15,6 @@ using System.Linq;
 
 namespace TelClient.ViewModels
 {
-   
-
     class MainWindowViewModel:ViewModel
     {
        public ObservableCollection<Group> Groups { get; set; }
@@ -49,48 +47,40 @@ namespace TelClient.ViewModels
         private void onwsConnectExecuted(object p)
         {
             ws = new WebsocketClient();
-            ws.initWebSocketClient("ws://127.0.0.1:8080/telephon"); ;
+            ws.initWebSocketClient("ws://127.0.0.1:8080/telephon");
         }
 
         public ICommand wsSend { get; }
         private bool CanwsSendExecute(object p) => true;
         private void onwsSendExecuted(object p)
         {
-            
-            ws.sendMessage() ;
+            ws.sendmes.Sender = "client";
+            ws.sendmes.Recipient = "Server";
+            ws.sendmes.Action = "getform";
+            ws.sendmes.Content = "Login";
+            string[] arr = { "list", "login" };
+            ws.sendmes.parameters = arr;
+            ws.sendMessage(ws.sendmes) ;
         }
         #endregion
-
-
-
-
-
-
-
 
         public MainWindowViewModel()
         {
             CloseApplicationCommand = new LambdaCommand(onCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
             wsConnect = new LambdaCommand(onwsConnectExecuted, CanwsConnectExecute);
-            wsSend = new LambdaCommand(onwsSendExecuted, CanwsSendExecute);
+            wsSend    = new LambdaCommand(onwsSendExecuted, CanwsSendExecute);
             var student_index = 1;
             var students = Enumerable.Range(1, 10).Select(i => new Student
             {
-                Name = $"kkkkkk{student_index}",
-                Surname = $"eeeeee{student_index}"
+                Name = $"Имя{student_index}",
+                Surname = $"Фамилия{student_index++}"
             });
             var groups = Enumerable.Range(1, 20).Select(i => new Group
             {
-                Name = $"kkkkkk{i}",
+                Name = $"Группа {i}",
                 Students = new ObservableCollection<Student>(students)
             });
-
-
             Groups = new ObservableCollection<Group>(groups);
-
-
-
-
         }
     }
 }
