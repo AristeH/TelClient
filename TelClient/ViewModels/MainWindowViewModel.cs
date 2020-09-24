@@ -12,6 +12,7 @@ using TelClient.Infrastructure.Commands;
 using TelClient.ViewModels.Base;
 using TelClient.Models.Decanat;
 using System.Linq;
+using TelClient.Models.Interfaces;
 
 namespace TelClient.ViewModels
 {
@@ -24,6 +25,8 @@ namespace TelClient.ViewModels
             get => _SelectedGroup;
             set => Set(ref _SelectedGroup, value);
         }
+
+
         #region заголовок окна
         /// <summary>Заголовок окна</summary>
         public WebsocketClient ws;
@@ -48,6 +51,7 @@ namespace TelClient.ViewModels
         {
             ws = new WebsocketClient();
             ws.initWebSocketClient("ws://127.0.0.1:8080/telephon");
+
         }
 
         public ICommand wsSend { get; }
@@ -63,7 +67,7 @@ namespace TelClient.ViewModels
             ws.sendMessage(ws.sendmes) ;
         }
         #endregion
-
+        public IList<shapka> ElementsShapka { get; set; } = new List<shapka>();
         public MainWindowViewModel()
         {
             CloseApplicationCommand = new LambdaCommand(onCloseApplicationCommandExecuted, CanCloseApplicationCommandExecute);
@@ -81,6 +85,22 @@ namespace TelClient.ViewModels
                 Students = new ObservableCollection<Student>(students)
             });
             Groups = new ObservableCollection<Group>(groups);
+
+            
+            ElementsShapka.Add(new shapka
+            {
+                Label = "Имя",
+                EditBox = "Name",
+                Flag  = "11111"
+            });
+            ElementsShapka.Add(new shapka
+            {
+                Label = "Пароль",
+                EditBox = "Password",
+                Flag = "11111"
+            });
+
+
         }
     }
 }

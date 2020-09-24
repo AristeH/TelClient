@@ -18,7 +18,7 @@
         <ToolBar DockPanel.Dock="Top">
             <Button fa5:Awesome.Content="Brands__500Px" 
         TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome">afqk</Button>
-            <Button Command="{Binding wsConnect}">Подключиться</Button>
+            <Button Command="{Binding wsConnect}" IsEnabled="{Binding ws.is_enabled}">Подключиться</Button>
             <Button Command="{Binding wsSend}">Помощь</Button>
             <Button Command="{Binding CloseApplicationCommand}">Выход</Button>
         </ToolBar>
@@ -44,14 +44,26 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
         </Grid>
-        <GroupBox Grid.Column="0" Header="Группа=">
-            <ListBox ItemsSource="{Binding Groups}" SelectedIndex="0"
+        <GroupBox  Header="Ввод пароля">
+            <ListBox ItemsSource="{Binding Path=ElementsShapka}" SelectedItem="{Binding Path=ElementsShapka, Mode=TwoWay}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Grid.Row="0" Grid.Column="1"   Width="50" Text="{Binding Label}" />
+                            <TextBox Grid.Row="0" Grid.Column="2" Width="100" Text="{Binding EditBox}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+        <GroupBox Grid.Column="1" Grid.Row="2" Header="Группа=">
+            <ListBox ItemsSource="{Binding Groups}" SelectedIndex="1"
                      DisplayMemberPath="Name"
                      SelectedItem="{Binding SelectedGroup}" SelectionChanged="ListBox_SelectionChanged">
                 
             </ListBox>
         </GroupBox>
-        <GroupBox Grid.Column="1" Header="{Binding SelectedGroup.Name, FallbackValue='Студенты', TargetNullValue='Группа не выбрана' }">
+        <GroupBox Grid.Column="2"  Grid.Row="2" Header="{Binding SelectedGroup.Name, FallbackValue='Студенты', TargetNullValue='Группа не выбрана' }">
             <DataGrid ItemsSource="{Binding SelectedGroup.Students}" 
                       AutoGenerateColumns="False"
                       IsReadOnly="True"

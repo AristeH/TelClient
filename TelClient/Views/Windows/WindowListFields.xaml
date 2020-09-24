@@ -1,0 +1,52 @@
+﻿<Window x:Class="TelClient.Views.Windows.WindowListFields"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:cmd="clr-namespace:TelClient.Infrastructure.Commands"
+        xmlns:local="clr-namespace:TelClient.Views.Windows"
+        xmlns:vm="clr-namespace:TelClient.ViewModels"
+        xmlns:l="clr-namespace:TelClient"
+        mc:Ignorable="d"
+        Title="{Binding Title}"
+        Height="200" Width="300">
+    <Window.DataContext>
+        <vm:WindowListFieldsModel></vm:WindowListFieldsModel>
+    </Window.DataContext>
+    <DockPanel>
+        <GroupBox DockPanel.Dock="Top">
+            <ListBox  Margin="0,3,0,0"        
+             ItemsSource="{Binding ElementsButtonsForm}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Label}" Command="{Binding wsSend}" CommandParameter="{Binding type}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </GroupBox>
+        <StatusBar DockPanel.Dock="Bottom"></StatusBar>
+        <GroupBox   Header="Ввод пароля">
+            
+        <ListBox ItemsSource="{Binding Path=ElementsShapka}" SelectedItem="{Binding Path=ElementsShapka, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock   Width="50"  Text="{Binding Label}"/>
+                        <TextBox     Width="100" Text="{Binding EditBox}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        </GroupBox>
+    </DockPanel>
+
+
+
+
+</Window>

@@ -19,8 +19,8 @@ namespace TelClient.Data
     class WebsocketClient
     {
         public WebSocket websocket;
-        private bool is_connected = false;
-       
+        public bool is_connected = false;
+        public bool is_enabled = true;
 
         public mess sendmes = new mess(); 
         public void initWebSocketClient(String serverURL)
@@ -43,7 +43,7 @@ namespace TelClient.Data
         public void websocket_Opened(object sender, EventArgs e) 
         {
             is_connected = true;
-          //  return "[Подключились]\n";
+            is_enabled = false;
         }
 
         public void websocket_Error(object sender, SuperSocket.ClientEngine.ErrorEventArgs e)
@@ -75,7 +75,6 @@ namespace TelClient.Data
         {
             if (is_connected)
             {
-              
                 string json = JsonConvert.SerializeObject(Message);
                 websocket.Send(json);
            }
